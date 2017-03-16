@@ -1,0 +1,7 @@
+{
+  "name": "Core",
+  "providers": [
+    "providers/CoreProvider",
+    "providers/AnnotationProvider"
+  ]
+}
