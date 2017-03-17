@@ -1,5 +1,7 @@
 'use strict';
 
+const argv = require('yargs').argv;
+
 const Boot = require('./boot/Boot');
 const boot = new Boot({
   base: __dirname,
@@ -7,3 +9,8 @@ const boot = new Boot({
 });
 
 boot.booting();
+
+const Executer = use('command/Executer');
+const executer = new Executer(argv);
+
+executer.execute();

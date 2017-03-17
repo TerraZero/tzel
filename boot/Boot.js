@@ -17,7 +17,6 @@ module.exports = class Boot {
       enabled: {},
     };
     this._providers = {};
-    this._annotations = {};
     this._annotationParser = null;
   }
 
@@ -69,8 +68,13 @@ module.exports = class Boot {
 
   bootAnnotations() {
     this._annotationParser = require('./AnnotationParser');
+    Mod.setParserClass(this.getParserClass());
     const annotations = this.findAnnotations();
     this.registerAnnotations(annotations);
+  }
+
+  getParserClass() {
+    return this._annotationParser;
   }
 
   findAnnotations() {
@@ -91,26 +95,24 @@ module.exports = class Boot {
       const annotation = require(annotations[index]);
 
       this._annotationParser.register(annotations[index]);
-      this._annotations[annotation.name] = annotation;
     }
   }
 
   bootProviders() {
-    const Data = use('core/Data');
     const providers = this.findProviders();
     this.registerProviders(providers);
-    const files = this.findFiles();
-    this.initProvider(files, Data);
+    this.initProvider();
   }
 
   findProviders() {
     const providers = [];
+    const ProviderAnnotation = use('core/annotations/Provider');
 
     for (const index in this._mods.enabled) {
-      const files = this._mods.enabled[index].getProviders();
+      const parsers = this._mods.enabled[index].get(ProviderAnnotation);
 
-      for (const f in files) {
-        providers.push(new (require(files[f]))());
+      for (const p in parsers) {
+        providers.push(new (require(parsers[p].getPath()))(parsers[p]));
       }
     }
     return providers;
@@ -122,48 +124,28 @@ module.exports = class Boot {
     }
   }
 
-  findFiles() {
-    const files = [];
-
-    for (const index in this._mods.enabled) {
-      const modFiles = this._mods.enabled[index].getFiles();
-
-      for (const modFile in modFiles) {
-        files.push(modFiles[modFile]);
-      }
-    }
-    return files;
-  }
-
-  initProvider(files, Data) {
-    for (const index in files) {
-      const data = new Data();
-      const parser = new this._annotationParser(files[index]);
-
-      for (const provider in this._providers) {
-        if (this._providers[provider].accept(data, files[index], parser)) {
-          this._providers[provider].prepare(data, files[index], parser);
-        }
-      }
+  initProvider() {
+    for (const index in this._providers) {
+      this._providers[index].startRegister(this);
     }
   }
 
   use(file) {
-    file = path.normalize(file);
-    const parts = file.split(path.sep);
+    const parts = file.split(':');
+    if (parts.length > 1) return this.provide(parts);
 
-    if (this._mods.enabled[parts[0]]) {
-      const mod = this._mods.enabled[parts[0]];
+    file = path.normalize(file);
+    const name = file.split(path.sep)[0];
+
+    if (this._mods.enabled[name]) {
+      const mod = this._mods.enabled[name];
       return require(mod.getPath(file));
     }
     return null;
   }
 
-  load(string) {
-    const parts = string.split(':');
-    const protocol = parts[0];
-
-    return this._providers[protocol].invoke(parts[1], null);
+  provide(parts) {
+    return this._providers[parts[0]].provide(parts[1]);
   }
 
   base(...args) {
@@ -177,15 +159,20 @@ module.exports = class Boot {
     global.use = function use(...args) {
       return that.use.apply(that, args);
     };
-    global.load = function load(...args) {
-      return that.load.apply(that, args);
-    };
     global.base = function base(...args) {
       return that.base.apply(that, args);
     };
-    global.tzel = {
-      boot: this,
+    global.log = function log(...args) {
+      console.log.apply(console, args);
     };
+  }
+
+  getProviders() {
+    return this._providers;
+  }
+
+  getMods(status = 'enabled') {
+    return this._mods[status];
   }
 
 };

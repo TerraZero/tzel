@@ -22,14 +22,19 @@ module.exports = class AnnotationParser {
     this._reader.parse(path);
   }
 
+  getPath() {
+    return this._path;
+  }
+
   /**
    * Get annoations on file marked with {Annoation.DEFINITION}
    *
    * @param {null|number|string|Annotation} index
+   * @param {null|number} delta
    * @return {null|Annoation[]}
    */
-  getDefinitions(index = null) {
-    return this.findAnnotations(this._reader.definitionAnnotations, index);
+  getDefinitions(index = null, delta = null) {
+    return this.findAnnotations(this._reader.definitionAnnotations, index, delta);
   }
 
   /**
@@ -47,10 +52,14 @@ module.exports = class AnnotationParser {
    *
    * @param {Annotation[]} list
    * @param {null|number|string|Annotation} index
+   * @param {null|number} delta
    * @returns {null|Annotation[]}
    */
-  findAnnotations(list, index = null) {
-    if (index === null) return list;
+  findAnnotations(list, index = null, delta = null) {
+    if (index === null) {
+      if (delta !== null) return list[delta];
+      return list;
+    }
 
     const filter = [];
     if (typeof index === "number") {
@@ -64,6 +73,9 @@ module.exports = class AnnotationParser {
       for (const i in list) {
         if (list[i].constructor.name === index.name) filter.push(list[i]);
       }
+    }
+    if (delta !== null) {
+      return filter.length && filter[delta] || null;
     }
     return filter.length && filter || null;
   }
