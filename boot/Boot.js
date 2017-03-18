@@ -56,6 +56,12 @@ module.exports = class Boot {
         this._mods.enabled[name] = mod;
       }
     }
+    if (this._mods.mods['core'].status() === 0) {
+      this._mods.enabled['core'] = this._mods.mods['core'];
+    }
+    if (this._mods.mods['command'].status() === 0) {
+      this._mods.enabled['command'] = this._mods.mods['command'];
+    }
   }
 
   installMods() {

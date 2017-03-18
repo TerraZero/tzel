@@ -7,3 +7,5 @@ const boot = new Boot({
 });
 
 boot.booting();
+
+const cool = use('service:cool');

@@ -13,7 +13,7 @@ module.exports = class Mod {
     this._root = path.normalize(root);
     this._name = name;
     this._info = require(path.join(this._root, this._name, 'info.json'));
-    this._status = settings.modules[name];
+    this._status = settings.modules[name] || 0;
 
     // caches
     this._annotations = undefined;

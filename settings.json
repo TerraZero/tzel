@@ -1,8 +1,6 @@
 {
   "modules": {
-    "core": 2,
     "mod": 2,
-    "command": 2,
     "service": 2
   }
 }
