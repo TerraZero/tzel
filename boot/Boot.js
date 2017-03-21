@@ -137,7 +137,7 @@ module.exports = class Boot {
   }
 
   use(file) {
-    const parts = file.split(':');
+    const parts = file.split('::');
     if (parts.length > 1) return this.provide(parts);
 
     file = path.normalize(file);
@@ -145,12 +145,20 @@ module.exports = class Boot {
 
     if (this._mods.enabled[name]) {
       const mod = this._mods.enabled[name];
-      return require(mod.getPath(file));
+      const subject = require(mod.getPath(file));
+
+      if (typeof subject.struct === 'function') {
+        subject.struct.call(subject);
+      }
+      return subject;
     }
     return null;
   }
 
   provide(parts) {
+    if (this._providers[parts[0]] === undefined) {
+      this.error('Provider "' + parts[0] + '" not defined for load string "' + parts.join('::') + '"');
+    }
     return this._providers[parts[0]].provide(parts[1]);
   }
 
@@ -179,6 +187,10 @@ module.exports = class Boot {
 
   getMods(status = 'enabled') {
     return this._mods[status];
+  }
+
+  error(message) {
+    throw new Error(message);
   }
 
 };

@@ -19,6 +19,7 @@
     "keypress": "^0.2.1",
     "path": "^0.12.7",
     "tzero-annotations": "^1.0.4",
+    "url-pattern": "^1.0.3",
     "yargs": "^6.6.0"
   }
 }

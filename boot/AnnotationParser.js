@@ -41,10 +41,11 @@ module.exports = class AnnotationParser {
    * Get annotations on file marked with {Annoation.METHOD}
    *
    * @param {null|number|string|Annotation} index
+   * @param {null|number} delta
    * @return {null|Annoation[]}
    */
-  getMethods(index = null) {
-    return this.findAnnotations(this._reader.methodAnnotations, index);
+  getMethods(index = null, delta = null) {
+    return this.findAnnotations(this._reader.methodAnnotations, index, delta);
   }
 
   /**

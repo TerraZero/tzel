@@ -33,6 +33,10 @@ module.exports = class Mod {
     return this._info;
   }
 
+  getInfo(value) {
+    return this._info[value];
+  }
+
   status() {
     return this._status;
   }
