@@ -19,6 +19,7 @@ module.exports = class Mod {
     this._annotations = undefined;
     this._parsers = undefined;
     this._caches = {};
+    this._templates = undefined;
   }
 
   root() {
@@ -43,7 +44,7 @@ module.exports = class Mod {
 
   getPath(...args) {
     args.unshift(this._root);
-    return path.join.apply(path, args);
+    return path.normalize(path.join.apply(path, args));
   }
 
   get(annotation) {
@@ -81,6 +82,16 @@ module.exports = class Mod {
       this._parsers.push(new this.constructor._Parser(files[index]));
     }
     return this._parsers;
+  }
+
+  getTemplates() {
+    if (this._templates !== undefined) return this._templates;
+
+    this._templates = glob.sync('**/*.pug', {
+      cwd: this.getPath(this.name(), 'templates'),
+      absolute: true,
+    });
+    return this._templates;
   }
 
 };

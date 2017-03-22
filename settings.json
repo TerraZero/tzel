@@ -2,6 +2,7 @@
   "modules": {
     "controller": 2,
     "mod": 2,
+    "theme": 2,
     "service": 2
   }
 }
