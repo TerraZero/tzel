@@ -164,7 +164,7 @@ module.exports = class Boot {
 
   base(...args) {
     args.unshift(this._data.base);
-    return path.join.apply(path, args);
+    return path.normalize(path.join.apply(path, args));
   }
 
   registerGlobals() {
