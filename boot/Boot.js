@@ -193,4 +193,8 @@ module.exports = class Boot {
     throw new Error(message);
   }
 
+  annotationParser() {
+    return this._annotationParser;
+  }
+
 };
