@@ -20,6 +20,7 @@ module.exports = class Mod {
     this._parsers = undefined;
     this._caches = {};
     this._templates = undefined;
+    this._styles = undefined;
   }
 
   root() {
