@@ -43,6 +43,10 @@ module.exports = class Mod {
     return this._status;
   }
 
+  getBase() {
+    return this.getPath(this.name());
+  }
+
   getPath(...args) {
     args.unshift(this._root);
     return path.normalize(path.join.apply(path, args));
@@ -65,7 +69,7 @@ module.exports = class Mod {
     if (this._annotations !== undefined) return this._annotations;
 
     this._annotations = glob.sync('annotations/*.js', {
-      cwd: this.getPath(this.name()),
+      cwd: this.getBase(),
       absolute: true,
     });
     return this._annotations;
@@ -75,7 +79,7 @@ module.exports = class Mod {
     if (this._parsers !== undefined) return this._parsers;
 
     const files = glob.sync('**/*.js', {
-      cwd: this.getPath(this.name()),
+      cwd: this.getBase(),
       absolute: true,
     });
     this._parsers = [];

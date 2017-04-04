@@ -163,8 +163,14 @@ module.exports = class Boot {
   }
 
   base(...args) {
-    args.unshift(this._data.base);
-    return path.normalize(path.join.apply(path, args));
+    const norm = path.normalize(path.join.apply(path, args));
+
+    if (path.isAbsolute(norm)) {
+      return norm;
+    } else {
+      args.unshift(this._data.base);
+      return path.normalize(path.join.apply(path, args));
+    }
   }
 
   registerGlobals() {
@@ -179,6 +185,7 @@ module.exports = class Boot {
     global.log = function log(...args) {
       console.log.apply(console, args);
     };
+    global.boot = this;
   }
 
   getProviders() {
