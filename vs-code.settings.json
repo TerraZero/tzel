@@ -1,0 +1,29 @@
+{
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.cursorBlinking": "phase",
+  "editor.folding": false,
+  "editor.formatOnSave": true,
+  "git.enabled": false,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Monokai",
+  "workbench.iconTheme": "vs-seti",
+  "explorer.openEditors.visible": 0,
+  "todohighlight.keywords": [
+    {
+      "text": "@Inject",
+      "color": "orange",
+      "overviewRulerColor": "orange"
+    },
+    "@Command",
+    "@Provider",
+    "@Service",
+    "@Controller",
+    "@Route"
+  ],
+  "todohighlight.defaultStyle": {
+    "color": "#4169E1",
+    "backgroundColor": null,
+    "overviewRulerColor": "#4169E1"
+  }
+}

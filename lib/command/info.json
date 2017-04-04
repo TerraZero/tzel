@@ -1,3 +1,4 @@
 {
-  "name": "Command"
+  "name": "Command",
+  "description": "The base module to provide commands."
 }

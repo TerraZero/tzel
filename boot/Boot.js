@@ -118,7 +118,7 @@ module.exports = class Boot {
       const parsers = this._mods.enabled[index].get(ProviderAnnotation);
 
       for (const p in parsers) {
-        providers.push(new (require(parsers[p].getPath()))(parsers[p]));
+        providers.push(new (require(parsers[p].getPath()))(parsers[p], this._mods.enabled[index]));
       }
     }
     return providers;

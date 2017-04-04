@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "cli-color": "^1.1.0",
+    "cli-table2": "^0.2.0",
     "deasync": "^0.1.9",
     "glob": "^7.1.1",
     "graceful-fs": "^4.1.11",
