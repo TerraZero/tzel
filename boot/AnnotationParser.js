@@ -12,6 +12,10 @@ module.exports = class AnnotationParser {
     registry.registerAnnotation(file);
   }
 
+  static registry() {
+    return registry;
+  }
+
   /**
    * @param {string} path
    */
