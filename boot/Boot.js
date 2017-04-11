@@ -204,4 +204,8 @@ module.exports = class Boot {
     return this._annotationParser;
   }
 
+  getSettings() {
+    return this._data.settings;
+  }
+
 };
