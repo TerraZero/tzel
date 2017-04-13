@@ -18,6 +18,7 @@
     "glob": "^7.1.1",
     "graceful-fs": "^4.1.11",
     "keypress": "^0.2.1",
+    "mkdirs": "0.0.2",
     "path": "^0.12.7",
     "pug": "^2.0.0-beta11",
     "tzero-annotations": "^1.0.4",
