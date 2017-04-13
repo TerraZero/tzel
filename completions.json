@@ -1,1 +1,12 @@
-["deliver","manager.storage","helper.module","simplify","formatter.cli","@Controller","@Route","@Inject","@Service","@Provider","@Command"]
+[
+  "deliver",
+  "manager.storage",
+  "helper.module",
+  "simplify",
+  "@Controller",
+  "@Route",
+  "@Inject",
+  "@Service",
+  "@Provider",
+  "@Command"
+]
