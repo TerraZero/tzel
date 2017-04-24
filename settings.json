@@ -8,8 +8,9 @@
   },
   "files": {
     "storages": {
-      "public": "storage/public",
-      "cache": "storage/cache"
+      "public": "storages/public",
+      "cache": "storages/cache",
+      "tmp": "storages/tmp"
     }
   }
 }
