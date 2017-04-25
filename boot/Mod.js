@@ -68,7 +68,7 @@ module.exports = class Mod {
   getAnnotations() {
     if (this._annotations !== undefined) return this._annotations;
 
-    this._annotations = glob.sync('annotations/*.js', {
+    this._annotations = glob.sync('annotations/**/*.js', {
       cwd: this.getBase(),
       absolute: true,
     });
