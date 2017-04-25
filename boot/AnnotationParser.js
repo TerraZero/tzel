@@ -26,8 +26,29 @@ module.exports = class AnnotationParser {
     this._reader.parse(path);
   }
 
+  /**
+   * The path of the parsed file.
+   *
+   * @return {string}
+   */
   getPath() {
     return this._path;
+  }
+
+  /**
+   *
+   * @param {int} type the type of the annotation
+   * @param {*} index
+   * @param {*} delta
+   */
+  get(type = Annotation.DEFINITION, index = null, delta = null) {
+    switch (type) {
+      case Annotation.DEFINITION:
+        return this.getDefinitions(index, delta);
+      case Annotation.METHOD:
+        return this.getMethods(index, delta);
+    }
+    return null;
   }
 
   /**

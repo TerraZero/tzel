@@ -2,6 +2,7 @@
 
 const path = require('path');
 const glob = require('glob');
+const Annotation = require('tzero-annotations').Annotation;
 
 module.exports = class Mod {
 
@@ -52,17 +53,18 @@ module.exports = class Mod {
     return path.normalize(path.join.apply(path, args));
   }
 
-  get(annotation) {
-    if (this._caches[annotation] !== undefined) return this._caches[annotation];
+  get(annotation, type = Annotation.DEFINITION) {
+    if (this._caches[type] !== undefined && this._caches[type][annotation] !== undefined) return this._caches[type][annotation];
     const parsers = this.getParsers();
 
-    this._caches[annotation] = [];
+    if (this._caches[type] === undefined) this._caches[type] = {};
+    this._caches[type][annotation] = [];
     for (const index in parsers) {
-      if (parsers[index].getDefinitions(annotation)) {
-        this._caches[annotation].push(parsers[index]);
+      if (parsers[index].get(type, annotation)) {
+        this._caches[type][annotation].push(parsers[index]);
       }
     }
-    return this._caches[annotation];
+    return this._caches[type][annotation];
   }
 
   getAnnotations() {
