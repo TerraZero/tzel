@@ -10,7 +10,8 @@
     "storages": {
       "public": "storages/public",
       "cache": "storages/cache",
-      "tmp": "storages/tmp"
+      "tmp": "storages/tmp",
+      "theme": "storages/theme"
     }
   }
 }
