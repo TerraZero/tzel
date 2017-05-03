@@ -106,8 +106,8 @@ module.exports = class Boot {
 
   bootProviders() {
     const providers = this.findProviders();
+
     this.registerProviders(providers);
-    this.initProvider();
   }
 
   findProviders() {
@@ -125,17 +125,16 @@ module.exports = class Boot {
   }
 
   registerProviders(providers) {
-    for (const index in providers) {
-      this._providers[providers[index].protocol()] = providers[index];
-    }
-  }
-
-  initProvider() {
     const Injector = use('service/Injector');
 
-    for (const index in this._providers) {
-      Injector.directInject(this._providers[index], this._providers[index].getPath());
-      this._providers[index].startRegister(this);
+    providers.sort(function (a, b) {
+      return a.getWeight() - b.getWeight();
+    });
+
+    for (const index in providers) {
+      Injector.directInject(providers[index], providers[index].getPath());
+      providers[index].startRegister(this);
+      this._providers[providers[index].protocol()] = providers[index];
     }
   }
 
