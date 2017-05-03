@@ -118,7 +118,7 @@ module.exports = class Boot {
       const parsers = this._mods.enabled[index].get(ProviderAnnotation);
 
       for (const p in parsers) {
-        providers.push(new (require(parsers[p].getPath()))(parsers[p], this._mods.enabled[index]));
+        providers.push(new (require(parsers[p].getPath()))(parsers[p], this._mods.enabled[index], parsers[p].getPath()));
       }
     }
     return providers;
@@ -131,7 +131,10 @@ module.exports = class Boot {
   }
 
   initProvider() {
+    const Injector = use('service/Injector');
+
     for (const index in this._providers) {
+      Injector.directInject(this._providers[index], this._providers[index].getPath());
       this._providers[index].startRegister(this);
     }
   }
