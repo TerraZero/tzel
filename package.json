@@ -14,15 +14,14 @@
   "dependencies": {
     "cli-color": "^1.1.0",
     "cli-table2": "^0.2.0",
-    "deasync": "^0.1.9",
     "glob": "^7.1.1",
     "graceful-fs": "^4.1.11",
-    "keypress": "^0.2.1",
     "mkdirs": "0.0.2",
     "path": "^0.12.7",
-    "prompt-sync": "^4.1.4",
+    "prompt-sync": "^4.1.5",
     "pug": "^2.0.0-beta11",
     "readline-sync": "^1.4.7",
+    "terminal-kit": "^1.6.6",
     "tzero-annotations": "^1.0.4",
     "url-pattern": "^1.0.3",
     "yargs": "^6.6.0"
