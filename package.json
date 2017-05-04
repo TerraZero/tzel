@@ -20,7 +20,9 @@
     "keypress": "^0.2.1",
     "mkdirs": "0.0.2",
     "path": "^0.12.7",
+    "prompt-sync": "^4.1.4",
     "pug": "^2.0.0-beta11",
+    "readline-sync": "^1.4.7",
     "tzero-annotations": "^1.0.4",
     "url-pattern": "^1.0.3",
     "yargs": "^6.6.0"
