@@ -1,0 +1,8 @@
+'use strict';
+
+/**
+ * @Service('{{service}}'){{annot.injects}}
+ */
+module.exports = class {{name}} {
+{{injects}}
+}
