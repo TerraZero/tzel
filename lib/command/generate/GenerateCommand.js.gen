@@ -1,0 +1,17 @@
+'use strict';
+
+const GenerateCommandBase = use('command/commands/generates/GenerateCommandBase');
+
+/**
+ * @Command(
+ *   value={{command.array}},
+ *   type='generate'
+ * ){{annot.injects}}
+ */
+module.exports = class {{name}} extends GenerateCommandBase {
+{{injects}}
+  generate() {
+
+  }
+
+}
