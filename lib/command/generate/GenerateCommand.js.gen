@@ -11,7 +11,26 @@ const GenerateCommandBase = use('command/commands/generates/GenerateCommandBase'
 module.exports = class {{name}} extends GenerateCommandBase {
 {{injects}}
   generate() {
+    this.addField('mod', {
+      ask: 'Module',
+      description: 'Enter the module.',
+      completions: this._options.list('mods'),
+      limit: true,
+    });
 
+    this.addField('name', {
+      ask: 'Name',
+      description: 'Enter the class name.',
+      fallback: this._replacer.getClassName('mod'),
+    });
+
+    this.addField('path', {
+      ask: 'Path',
+      description: 'Enter the path for the file.',
+      fallback: '/',
+    });
+
+    this.addFile('mod.{{mod}}::generate/from.js.gen', 'mod.$mod::$path/$name.js');
   }
 
 }

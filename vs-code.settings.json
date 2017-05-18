@@ -21,6 +21,11 @@
       "color": "orange",
       "overviewRulerColor": "orange"
     },
+    {
+      "text": "@Base",
+      "color": "yellow",
+      "overviewRulerColor": "yellow"
+    },
     "@Command",
     "@Provider",
     "@Service",
