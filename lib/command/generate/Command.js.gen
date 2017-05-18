@@ -1,0 +1,18 @@
+'use strict';
+
+const Command = use('command/Command');
+
+/**
+ * @Command({{command.array}}){{annot.injects}}
+ */
+module.exports = class {{name}} extends Command {
+{{injects}}
+  define() {
+
+  }
+
+  execute() {
+
+  }
+
+}
