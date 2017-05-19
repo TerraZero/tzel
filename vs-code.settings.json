@@ -22,6 +22,11 @@
       "overviewRulerColor": "orange"
     },
     {
+      "text": "@BasedOn",
+      "color": "yellow",
+      "overviewRulerColor": "yellow"
+    },
+    {
       "text": "@Base",
       "color": "yellow",
       "overviewRulerColor": "yellow"
