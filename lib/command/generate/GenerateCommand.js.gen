@@ -1,13 +1,11 @@
 'use strict';
 
-const GenerateCommandBase = use('command/commands/generates/GenerateCommandBase');
+{{base.use}}
 
 /**
- * @Command({{command.array}})
- *
- * @BasedOn('command.input.generate'){{annot.injects}}
+ * @Command({{command.array}}){{base.annot}}{{annot.injects}}
  */
-module.exports = class {{name}} extends GenerateCommandBase {
+module.exports = class {{name}} extends {{base.extend}} {
 {{injects}}
   generate() {
     this.addField('mod', {

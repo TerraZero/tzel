@@ -1,11 +1,11 @@
 'use strict';
 
-const Command = use('command/Command');
+{{base.use}}
 
 /**
- * @Command({{command.array}}){{annot.injects}}
+ * @Command({{command.array}}){{base.annot}}{{annot.injects}}
  */
-module.exports = class {{name}} extends Command {
+module.exports = class {{name}} extends {{base.extend}} {
 {{injects}}
   define() {
 

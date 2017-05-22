@@ -1,10 +1,10 @@
 'use strict';
 
-const Event = use('core/Event');
+{{base.use}}
 
 /**
- * @Event('{{event}}'){{annot.injects}}
+ * @Event('{{event}}'){{base.annot}}{{annot.injects}}
  */
-module.exports = class {{name}} extends Event {
+module.exports = class {{name}} extends {{base.extend}} {
 {{injects}}
 }
