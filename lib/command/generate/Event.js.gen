@@ -1,9 +1,9 @@
 'use strict';
 
-{{base.use}}
+{{uses}}
 
 /**
- * @Event('{{event}}'){{base.annot}}{{annot.injects}}
+ * @Event('{{event}}'){{annot}}
  */
 module.exports = class {{name}} extends {{base.extend}} {
 {{injects}}

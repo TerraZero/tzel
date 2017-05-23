@@ -1,9 +1,9 @@
 'use strict';
 
-{{base.use}}
+{{uses}}
 
 /**
- * @Command({{command.array}}){{base.annot}}{{annot.injects}}
+ * @Command({{command.array}}){{annot}}
  */
 module.exports = class {{name}} extends {{base.extend}} {
 {{injects}}
