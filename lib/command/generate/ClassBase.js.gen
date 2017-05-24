@@ -1,0 +1,7 @@
+'use strict';
+
+{{uses}}
+
+module.exports = class {{name}} extends {{base.extend}} {
+
+}

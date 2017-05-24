@@ -1,6 +1,7 @@
 {
   "modules": {
     "controller": 2,
+    "routes": 2,
     "mod": 2,
     "theme": 2,
     "file": 2,

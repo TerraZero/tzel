@@ -21,6 +21,16 @@ module.exports = class {{name}} extends {{base.extend}} {
       fallback: this._replacer.getClassName('mod'),
     });
 
+    this.addField('base', {
+      ask: 'Base',
+      description: 'Enter the base of the class.',
+      completions: this._options.listBases(),
+      limit: true,
+    });
+    this.addReplacer('base.use', this._replacer.getBasedOnUse('base'), 'uses', 'prepend');
+    this.addReplacer('base.extend', this._replacer.getBasedOnExtend('base'));
+    this.addReplacer('base.annot', this._replacer.getBasedOnAnnotation('base'), 'annot', 'prepend');
+
     this.addField('path', {
       ask: 'Path',
       description: 'Enter the path for the file.',
