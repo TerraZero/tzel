@@ -35,6 +35,7 @@
     "@Provider",
     "@Service",
     "@Controller",
+    "@Element",
     "@Route"
   ],
   "todohighlight.defaultStyle": {

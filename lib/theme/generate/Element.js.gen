@@ -1,0 +1,14 @@
+'use strict';
+
+{{uses}}
+
+/**
+ * @Element('{{element}}'){{annot}}
+ */
+module.exports = class {{name}} extends {{base.extend}} {
+{{injects}}
+  options() {
+
+  }
+
+}
