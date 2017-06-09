@@ -36,6 +36,8 @@
     "@Service",
     "@Controller",
     "@Element",
+    "@EntityType",
+    "@EntityFieldType",
     "@Route"
   ],
   "todohighlight.defaultStyle": {
