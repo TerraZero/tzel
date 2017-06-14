@@ -38,6 +38,8 @@
     "@Element",
     "@EntityType",
     "@EntityFieldType",
+    "@Exception",
+    "@Event",
     "@Route"
   ],
   "todohighlight.defaultStyle": {

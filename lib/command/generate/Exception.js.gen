@@ -1,0 +1,15 @@
+'use strict';
+
+{{uses}}
+
+/**
+ * @Exception('{{exception}}'){{annot}}
+ */
+module.exports = class {{name}} extends {{base.extend}} {
+{{injects}}
+  init() {
+    super.init();
+    this.setMessage('{{message}}');
+  }
+
+}
