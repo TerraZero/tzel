@@ -16,5 +16,21 @@
       "tmp": "storages/tmp",
       "theme": "storages/theme"
     }
+  },
+  "databases": {
+    "default": {
+      "driver": "mysql",
+      "host": "localhost",
+      "user": "root",
+      "password": "",
+      "database": "tzel"
+    },
+    "test": {
+      "driver": "mysql",
+      "host": "localhost",
+      "user": "root",
+      "password": "",
+      "database": "tzel_2"
+    }
   }
 }

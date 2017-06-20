@@ -8,3 +8,4 @@ const Executer = use('command/Executer');
 const executer = new Executer(argv);
 
 executer.execute();
+executer.finalend();
