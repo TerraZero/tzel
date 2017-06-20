@@ -41,6 +41,8 @@
     "@Exception",
     "@Event",
     "@FieldType",
+    "@DBTable",
+    "@DBDriver",
     "@Route"
   ],
   "todohighlight.defaultStyle": {
