@@ -30,7 +30,11 @@
       "host": "localhost",
       "user": "root",
       "password": "",
-      "database": "tzel_2"
+      "database": "tzel_2",
+      "exclude": [
+        "install",
+        "clean"
+      ]
     }
   }
 }
