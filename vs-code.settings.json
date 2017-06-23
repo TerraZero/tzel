@@ -43,6 +43,7 @@
     "@FieldType",
     "@DBTable",
     "@DBDriver",
+    "@QueryBuilder",
     "@Route"
   ],
   "todohighlight.defaultStyle": {
