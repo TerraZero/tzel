@@ -1,7 +1,5 @@
 {
-  "modules": {
-    "service": 2
-  },
+  "modules": {},
   "files": {
     "storages": {
       "public": "storages/public",
