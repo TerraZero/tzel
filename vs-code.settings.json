@@ -21,16 +21,6 @@
       "color": "orange",
       "overviewRulerColor": "orange"
     },
-    {
-      "text": "@BasedOn",
-      "color": "yellow",
-      "overviewRulerColor": "yellow"
-    },
-    {
-      "text": "@Base",
-      "color": "yellow",
-      "overviewRulerColor": "yellow"
-    },
     "@Command",
     "@Provider",
     "@Service",
@@ -44,6 +34,7 @@
     "@DBTable",
     "@DBDriver",
     "@QueryBuilder",
+    "@Listener",
     "@Route"
   ],
   "todohighlight.defaultStyle": {
