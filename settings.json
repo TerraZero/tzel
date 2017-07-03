@@ -1,5 +1,7 @@
 {
-  "modules": {},
+  "modules": {
+    "file": 2
+  },
   "files": {
     "storages": {
       "public": "storages/public",
