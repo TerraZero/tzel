@@ -1,4 +1,7 @@
 {
   "name": "Command",
-  "description": "The base module to provide commands."
+  "description": "The base module to provide commands.",
+  "dependencies": [
+    "core"
+  ]
 }

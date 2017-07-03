@@ -1,7 +1,6 @@
 {
   "name": "Core",
-  "providers": [
-    "providers/CoreProvider",
-    "providers/AnnotationProvider"
+  "dependencies": [
+    "boot"
   ]
 }
