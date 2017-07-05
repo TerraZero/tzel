@@ -1,6 +1,9 @@
 {
   "modules": {
-    "file": 2
+    "db": 2,
+    "file": 2,
+    "entity": 2,
+    "entities": 2
   },
   "files": {
     "storages": {
